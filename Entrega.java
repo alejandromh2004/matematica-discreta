@@ -40,7 +40,7 @@ import java.util.stream.Stream;
  *
  * Podeu fer aquesta entrega en grups de com a màxim 3 persones, i necessitareu com a minim Java 10.
  * Per entregar, posau a continuació els vostres noms i entregau únicament aquest fitxer.
- * - Nom 1:
+ * - Nom 1: Alejandro Martínez Hermosa
  * - Nom 2:
  * - Nom 3:
  *
@@ -71,9 +71,30 @@ class Entrega {
      * Vegeu el mètode Tema1.tests() per exemples.
      */
     static int exercici1(int n) {
-      return 0; // TODO
-    }
+        int sol=0;
+        //iniciam en el casos que dona 1 quan n=2
+        int sol_anterior=3;
+        if(n==2){
+            return sol_anterior;
+        }
+        for(int i=3;i!=n+1;i++){
+            //en la siguiente tabla los 0 de la anterior (2^(i-1)*UnosEnLaAnterior) generan dos unos 
+            //por eso se multiplica por 2, y los 1 generan 1 por eso se suman los 1 anteriores
+            sol=(int) ((elevar2(i-1)-sol_anterior)*2+sol_anterior);
+            sol_anterior=sol;
+        }
+        
 
+        return sol;
+       // TODO
+    }
+    static int elevar2(int n){
+        int e=2;
+        for(int i=0;i!=n-1;i++){
+            e=e*2;
+        }
+        return e;
+    }
     /*
      * És cert que ∀x : P(x) -> ∃!y : Q(x,y) ?
      */
